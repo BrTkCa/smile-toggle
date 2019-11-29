@@ -9,7 +9,7 @@
 
 # Motivation
 
-[Martin Fowler](https://martinfowler.com/articles/feature-toggles.html)
+[Martin Fowler Article](https://martinfowler.com/articles/feature-toggles.html)
 
 This project is a straightforward Javascript implementation of the Strategy Pattern introduced by Margin Fowler. It aims to empower an Javascript architeture to the use of Feature Toggles easily and standardized.
 
