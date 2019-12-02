@@ -1,5 +1,5 @@
 const FeatureDecisions = require('./FeaturesDecisions.json')
-const FeatureManager = require('../featureStrategyFactory')(FeatureDecisions)
+const FeatureManager = require('smile-toggle')(FeatureDecisions)
 
 class HelloFeatureStrategy {
     constructor() {

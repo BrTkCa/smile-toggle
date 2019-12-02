@@ -1,0 +1,27 @@
+{
+  "name": "smile-toggle",
+  "version": "1.0.0",
+  "description": "Feature toggle (a.k.a Feature Flags) strategy factory allows applications switch their behavior with a simple and external configurable way.",
+  "main": "featureStrategyFactory.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luccascosta/smile-toggle.git"
+  },
+  "keywords": [
+    "toggle",
+    "toggle-switches",
+    "flags",
+    "feature-toggle",
+    "feature-flag",
+    "strategy-pattern"
+  ],
+  "author": "Lucas Bueno <lbc.lucascosta@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luccascosta/smile-toggle/issues"
+  },
+  "homepage": "https://github.com/luccascosta/smile-toggle#readme"
+}

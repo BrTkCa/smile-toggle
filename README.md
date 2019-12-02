@@ -1,27 +1,29 @@
 <h1 align="center">Smile-Toggle</h1>
 <h3 align="center"><b>Smile-Toggle is a library</b> that apply a strategy pattern that allows applications switch their behavior from a simple and external configurable source.</h3>
 
-<p align="center">
-	<a href="https://travis-ci.org/luccascosta/react-identity-component">
-		<img src="https://api.travis-ci.org/luccascosta/react-identity-component.svg?branch=master" />
-	</a>
-</p>
-
 # Motivation
 
 [Martin Fowler Article](https://martinfowler.com/articles/feature-toggles.html)
 
-This project is a straightforward Javascript implementation of the Strategy Pattern introduced by Margin Fowler. It aims to empower an Javascript architeture to the use of Feature Toggles easily and standardized.
+This project is a straightforward Javascript implementation of the Strategy Pattern introduced by Margin Fowler for Feature Flags. It aims to empower an Javascript architeture to the use of Feature Toggles easily and standardized.
+
+# Give it a try
+
+Clone this repo, switch to the client folder and run `node index.js`. You will see the callback being called based on the decisions rules file.
+
+# Flow
+![Flow](Feature-Toggles-flow.jpg)
 
 # Getting started
+
 The first step is to install the library:
 
     npm i smile-toggle --save
 
 ## Implementation
 
-It's only necessary to create a Feature Decision file, following the pattern:
-
+1. Create a Feature Decision file, following the pattern:
+    ```json
     {
         "featureName": {
             "activated": false,
@@ -29,14 +31,51 @@ It's only necessary to create a Feature Decision file, following the pattern:
             "group": "dev"
         }
     }
+    ```
+1. Import the library and instantiate it passing the FeaturesDecisions configuration file:
+    ```javascript
+    const FeatureDecisions = require('./FeaturesDecisions.json')
+    const smileToggle = require('smile-toggle')(FeatureDecisions)
+    ```
+1. Create the callbacks:
+    ```javascript
+    const FeatureDecisions = require('./FeaturesDecisions.json')
+    const smileToggle = require('smile-toggle')(FeatureDecisions)
 
-## Deep dive
+    class HelloFeatureStrategy {
+        constructor() {
+        }
 
-// TODO
+        defaultBehavior() {
+            console.log('Default behavior kept')
+        }
 
-## Real examples
+        changeDefaultBehavior() {
+            console.log('Changed the component behavior')
+        }
+    }
+    ```
+1. Call the Feature Manager smile-toggle passing through the **default** and **changer** callback:
+    ```javascript
+    const FeatureDecisions = require('./FeaturesDecisions.json')
+    const smileToggle = require('smile-toggle')(FeatureDecisions)
 
-// TODO
+    class HelloFeatureStrategy {
+        constructor() {
+            smileToggle.shouldShowUserHomePage(
+                this.defaultBehavior,
+                this.changeDefaultBehavior
+            )
+        }
+
+        defaultBehavior() {
+            console.log('Default behavior kept')
+        }
+
+        changeDefaultBehavior() {
+            console.log('Changed the component behavior')
+        }
+    }
 
 ## LICENSE
 
